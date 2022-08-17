@@ -14,6 +14,7 @@ var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var symbols = ["@", "#", "$", "%", "&", "?"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var availableCharacters = [];
 
 function generatePassword() {
   //var characterLength prompt
@@ -27,49 +28,41 @@ function generatePassword() {
 
   //var hasNumbers prompt
   var hasNumbers = window.prompt("Do you want your password to include numbers?")
-    if (hasNumbers == ""){
+  if (hasNumbers == "") {
 
-      hasNumbers = true;
-    }
-    else {
-      hasNumbers = false;
-    }
+    availableCharacters.push(hasNumbers);
+  }
+
+
+  //var hasUpper prompt
+  var hasUpper = window.prompt("Do you want your password to include uppercase letters?")
+  if (hasUpper == "") {
+
+    availableCharacters.push(hasUpper);
+  }
+
+  //var hasLower prompt
+  var hasLower = window.prompt("Do you want your password to include lowercase letters?")
+  if (hasLower == "") {
+
+    availableCharacters.push(hasLower);
+  }
   
-    //var hasUpper prompt
-    var hasUpper = window.prompt("Do you want your password to include uppercase letters?")
-    if (hasUpper == ""){
+  //var hasSymbols prompt
+  var hasSymbols = window.prompt("Do you want your password to include symbols?")
+  if (hasSymbols == "") {
 
-      hasUpper = true;
-    }
-    else {
-      hasUpper = false;
-    }
+    availableCharacters.push(hasSymbols);
+  }
 
-    //var hasLower prompt
-    var hasLower = window.prompt("Do you want your password to include lowercase letters?")
-    if (hasLower == ""){
 
-      hasLower = true;
-    }
-    else {
-      hasLower = false;
-    }
-   //var hasSymbols prompt
-    var hasSymbols = window.prompt("Do you want your password to include symbols?")
-    if (hasSymbols == ""){
-
-      hasSymbols = true;
-    }
-    else {
-      hasSymbols = false;
-    }
-  
-    var generatePassword = 
+ // var generatePassword =
 
   //.4 Display generated password
-  return "password";
+  //return "password";
 
 }
+
 
 
 
