@@ -15,6 +15,8 @@ var symbols = ["@", "#", "$", "%", "&", "?"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var availableCharacters = [];
+var randomCharacters = [];
+var generatePassword;
 
 function generatePassword() {
   //var characterLength prompt
@@ -30,6 +32,7 @@ function generatePassword() {
   var hasNumbers = window.prompt("Do you want your password to include numbers?")
   if (hasNumbers == "") {
 
+    hasNumbers = true;
     availableCharacters.push(hasNumbers);
   }
 
@@ -38,6 +41,7 @@ function generatePassword() {
   var hasUpper = window.prompt("Do you want your password to include uppercase letters?")
   if (hasUpper == "") {
 
+    hasUpper = true;
     availableCharacters.push(hasUpper);
   }
 
@@ -45,21 +49,36 @@ function generatePassword() {
   var hasLower = window.prompt("Do you want your password to include lowercase letters?")
   if (hasLower == "") {
 
+    hasLower = true;
     availableCharacters.push(hasLower);
   }
-  
+
   //var hasSymbols prompt
   var hasSymbols = window.prompt("Do you want your password to include symbols?")
   if (hasSymbols == "") {
 
+    hasSymbols = true;
     availableCharacters.push(hasSymbols);
   }
 
+for (var i = 0; i < charLengthInput; i++){
+ 
 
- // var generatePassword =
+  if (randomCharacters == hasNumbers)
+  {
+    
+  }
 
-  //.4 Display generated password
-  //return "password";
+
+
+
+
+//generatePassword = availableCharacters[randomCharacters];
+
+}
+
+ //.4 Display generated password
+ return generatePassword;;
 
 }
 
