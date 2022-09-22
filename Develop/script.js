@@ -1,100 +1,69 @@
-// Assignment Code
-
-//1. Prompt the user for the password criteria: DONE
-//a. Password length 8 < 128: DONE
-//b. Lowercase, uppercase, numbers, special characters
-//2. Validate the input
-//3. Generate password based on criteria
-//4. Display the generated password
-
-
-
 var generateBtn = document.querySelector("#generate");
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-var symbols = ["@", "#", "$", "%", "&", "?"];
+var symbols = ["@", "#", "$", "%", "&", "?", "+", "!", ":", "/"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var availableCharacters = [];
-var randomCharacters = [];
-var generatePassword;
 
 function generatePassword() {
-  //var characterLength prompt
+  //Prompt user for password length
   var charLengthInput = window.prompt("How many characters would you like your password to contain?");
-
   while (charLengthInput < 8 || charLengthInput > 128) {
     window.prompt("Password must contain at least 8 characters and no more than 128 characters.");
 
     charLengthInput = window.prompt("How many characters would you like your password to contain?");
   }
 
-  //var hasNumbers prompt
-  var hasNumbers = window.prompt("Do you want your password to include numbers?")
-  if (hasNumbers == "") {
+  //Confirm user input for password character types
+  var hasNumbers = confirm("Do you want your password to include numbers?");
+  var hasLower = confirm("Do you want your password to include lowercase letters?");
+  var hasUpper = confirm("Do you want your password to include uppercase letters?");
+  var hasSymbols = confirm("Do you want your password to include symbols?");
 
-    hasNumbers = true;
-    availableCharacters.push(hasNumbers);
+//If statements to add user input for character types into an array
+  if (hasNumbers) {
+    for (var i = 0; i < numbers.length; i++) {
+      availableCharacters.push(numbers[i]);
+    }
   }
 
-
-  //var hasUpper prompt
-  var hasUpper = window.prompt("Do you want your password to include uppercase letters?")
-  if (hasUpper == "") {
-
-    hasUpper = true;
-    availableCharacters.push(hasUpper);
+  if (hasLower) {
+    for (var i = 0; i < lowerCase.length; i++) {
+      availableCharacters.push(lowerCase[i]);
+    }
   }
 
-  //var hasLower prompt
-  var hasLower = window.prompt("Do you want your password to include lowercase letters?")
-  if (hasLower == "") {
-
-    hasLower = true;
-    availableCharacters.push(hasLower);
+  if (hasUpper) {
+    for (var i = 0; i < upperCase.length; i++) {
+      availableCharacters.push(upperCase[i]);
+    }
   }
 
-  //var hasSymbols prompt
-  var hasSymbols = window.prompt("Do you want your password to include symbols?")
-  if (hasSymbols == "") {
-
-    hasSymbols = true;
-    availableCharacters.push(hasSymbols);
+  if (hasSymbols) {
+    for (var i = 0; i < symbols.length; i++) {
+      availableCharacters.push(symbols[i]);
+    }
   }
 
-for (var i = 0; i < charLengthInput; i++){
- 
+  var generatedPassword = "";
 
-  if (randomCharacters == hasNumbers)
-  {
-    
+  //Randomly loop through array of avaliable characters to get password 
+  for (var i = 0; i < charLengthInput; i++) {
+    var randomCharacter = Math.floor(Math.random() * availableCharacters.length);
+    generatedPassword = generatedPassword + availableCharacters[randomCharacter];
   }
 
-
-
-
-
-//generatePassword = availableCharacters[randomCharacters];
-
+  return generatedPassword;
 }
-
- //.4 Display generated password
- return generatePassword;;
-
-}
-
-
-
-
-
-
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  if (password) {
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
