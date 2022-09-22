@@ -20,6 +20,13 @@ function generatePassword() {
   var hasUpper = confirm("Do you want your password to include uppercase letters?");
   var hasSymbols = confirm("Do you want your password to include symbols?");
 
+  //Alert user to select at least one character type
+  if(hasNumbers == false && hasLower == false && hasUpper == false && hasSymbols == false)
+  {
+    window.alert("At least one character type must be selected.")
+    return;
+  }
+
 //If statements to add user input for character types into an array
   if (hasNumbers) {
     for (var i = 0; i < numbers.length; i++) {
